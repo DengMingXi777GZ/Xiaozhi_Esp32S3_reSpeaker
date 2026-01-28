@@ -1,6 +1,14 @@
-# reSpeaker-Xiaozhi 适配改动说明与部署指南
+# **⼿把⼿教你⽤ ESP32S3 + reSpeaker 打造属于你的云端 AI Xiaozhi 语⾳助⼿**
+Languages: [English](README_english.md) | 中文 (当前文档)
 
-> **目标**：让设备在启动阶段即可初始化并探测 reSpeaker XVF3800（I2C），并与项目现有的 I2S 音频链路协同工作。
+> **目标**：让Esp32S3与 reSpeaker XVF3800协同使用，并在其上搭载小智实现云计算大模型部署。
+> [项目源码](https://github.com/Seeed-Projects/Xiaozhi_Esp32S3_reSpeaker)
+> [Seeed-Projects](https://github.com/Seeed-Projects)
+> 
+> reSpeaker XVF3800 是一款基于 XMOS XVF3800 芯片的专业级 4 麦克风圆形阵列麦克风，即使在嘈杂的环境中也能清晰地拾取目标语音。它具备双模式、360° 远场语音拾取（最远 5 米）、自动回声消除 (AEC)、自动增益控制 (AGC)、声源定位 (DoA)、去混响、波束成形和噪声抑制等功能。得益于它的超强拾音降噪能力，小智拥有了更灵动的耳朵。
+> [ReSpeaker 四麦克风阵列 | Seeed Studio购买链接 淘宝天猫均有售](https://www.seeedstudio.com.cn/product/respeaker-mic-array-v2-0)
+> ![pir](https://files.seeedstudio.com/wiki/respeaker_xvf3800_usb/respeaker-banner.jpg)
+
 > ---
 
 ## 第一部分：reSpeaker 硬件固件准备
@@ -11,7 +19,8 @@
 > 更详细的官方说明请参考：
 > 
 > - [reSpeaker XVF3800 入门指南](https://wiki.seeedstudio.com/cn/respeaker_xvf3800_xiao_getting_started/#%E5%88%B7%E5%86%99-i2s-%E5%9B%BA%E4%BB%B6)
-> - [ReSpeaker XVF3800 固件仓库](https://github.com/respeaker/reSpeaker_XVF3800_USB_4MIC_ARRAY/tree/master/xmos_firmwares)
+> - [reSpeaker XVF3800 固件仓库](https://github.com/respeaker/reSpeaker_XVF3800_USB_4MIC_ARRAY/tree/master/xmos_firmwares)
+>   [reSpeaker 源码仓库](https://github.com/respeaker)
 
 ### 1.1 准备工作
 
@@ -55,7 +64,7 @@ sudo dfu-util -l
 
 #### 接线要点
 
-- **务必使用「靠近 3.5mm 耳机插孔」那一侧的 USB‑C 口（XMOS 侧）**连接电脑，不要连到 XIAO 那一侧。
+- 务必使用「靠近 3.5mm 耳机插孔」那一侧的 USB‑C 口（XMOS 侧）**连接电脑，不要连到 XIAO 那一侧。**
 
 #### 进入安全模式（推荐）
 
@@ -222,6 +231,7 @@ idf.py monitor
 1. **获取设备 ID**：联网后，唤醒设备说“你好，小智”，听取播报的 **6 位数字验证码**。
 2. **登录后台**：电脑访问 [https://xiaozhi.me](https://xiaozhi.me) 并注册/登录。
 3. **绑定设备**：在“智能体”模块选择 **“添加设备”**，输入 6 位设备 ID 并提交。
-   ![登录成功](docs/images/respeaker-porting/1768962639785.png)
+   ![登录成功](image.png)
    完成以上所有步骤后，你的 reSpeaker-Xiaozhi 设备即可正常工作。
-   ![历史对话](docs/images/respeaker-porting/1769136906090.png)
+   ![历史对话](image-1.png)
+
